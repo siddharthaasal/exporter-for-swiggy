@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 300px; margin: 0; padding: 16px; font: 13px/1.4 -apple-system, "Segoe UI", Roboto, sans-serif; color: #222; }
+    h1 { font-size: 15px; margin: 0 0 12px; }
+    label { display: block; margin: 10px 0 4px; font-weight: 600; }
+    input[type=date] { width: 100%; box-sizing: border-box; padding: 6px; border: 1px solid #ccc; border-radius: 6px; font: inherit; }
+    .quick { display: flex; gap: 6px; margin-top: 10px; }
+    .quick button { flex: 1; padding: 5px 0; border: 1px solid #ddd; background: #fafafa; border-radius: 6px; cursor: pointer; font: inherit; font-size: 12px; }
+    .check { display: flex; align-items: center; gap: 6px; margin-top: 12px; font-weight: normal; }
+    #go { width: 100%; margin-top: 14px; padding: 9px; border: 0; border-radius: 8px; background: #fc8019; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    #status { margin-top: 10px; min-height: 18px; color: #555; }
+    #status.err { color: #c0392b; }
+  </style>
+</head>
+<body>
+  <h1>Swiggy &amp; Instamart Order Exporter</h1>
+  <div id="site" style="margin:-6px 0 6px;color:#777"></div>
+  <label for="start">Start date</label>
+  <input type="date" id="start">
+  <label for="end">End date</label>
+  <input type="date" id="end">
+  <div class="quick">
+    <button data-q="last">Last month</button>
+    <button data-q="this">This month</button>
+    <button data-q="3m">Last 3 months</button>
+  </div>
+  <label class="check"><input type="checkbox" id="delivered" checked> Delivered orders only</label>
+  <label class="check" id="detailRow" style="display:none"><input type="checkbox" id="details" checked> Include bill details (fees, discounts; slower)</label>
+  <button id="go">Export to Excel</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
